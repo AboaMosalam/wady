@@ -1,11 +1,8 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
 
-// https://vitejs.dev/config/
+// ضبط base حسب بيئة النشر
 export default defineConfig({
   plugins: [react()],
-  base: '/wadi-alamar/',
-  optimizeDeps: {
-    exclude: ['lucide-react'],
-  },
-});
+  base: process.env.DEPLOY_ENV === 'GH' ? '/wady/' : '/',
+})
